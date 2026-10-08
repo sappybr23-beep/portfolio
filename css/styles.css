@@ -1,0 +1,305 @@
+/* ============================================================
+   Руслан Ан — портфолио
+   Дизайн-система (из макетов Paper «Jolly lantern»)
+   Шрифт: Roboto Mono · акцент: моноширинная editorial-типографика
+   ============================================================ */
+
+:root {
+  --bg: #ffffff;
+  --bg-muted: #f8f8f8;
+  --ink: #1e1e1e;
+  --on-dark: #ffffff;
+  --border: rgba(30, 30, 30, 0.08);
+
+  --font: "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs: 16px;
+  --lh: 1.4;
+  --tracking: -0.02em;
+
+  /* spacing scale (Tailwind *4px) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 10px;
+  --s4: 16px;
+  --s6: 24px;
+  --s8: 32px;
+  --s12: 48px;
+  --s14: 58px;
+  --s16: 64px;
+
+  /* radii */
+  --r-xs: 8px;
+  --r-sm: 16px;
+  --r-md: 24px;
+  --r-lg: 32px;
+  --r-xl: 48px;
+
+  /* layout */
+  --col: 556px;      /* контентная колонка (кейсы / обо мне) */
+  --sidebar: 337px;  /* сайдбар на главной */
+  --feed: 362px;     /* колонка ленты проектов */
+  --page-pad: 24px;
+  --section-gap: clamp(80px, 11vw, 180px);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--fs);
+  line-height: var(--lh);
+  letter-spacing: var(--tracking);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: anywhere;
+}
+
+body.theme-muted { background: var(--bg-muted); }
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- helpers ---------- */
+.stack { display: flex; flex-direction: column; align-items: flex-start; }
+.stack.center { align-items: center; }
+.gap-1 { gap: var(--s1); }
+.gap-2 { gap: var(--s2); }
+.gap-4 { gap: var(--s4); }
+.gap-6 { gap: var(--s6); }
+.gap-8 { gap: var(--s8); }
+.gap-12 { gap: var(--s12); }
+.gap-14 { gap: var(--s14); }
+.gap-16 { gap: var(--s16); }
+
+.label { font-weight: 500; }
+.muted { opacity: 0.5; }
+.muted-56 { opacity: 0.56; }
+.pre { white-space: pre-wrap; }
+.lower { text-transform: lowercase; }
+.full { width: 100%; }
+
+/* ---------- media ---------- */
+.media { width: 100%; border-radius: var(--r-md); object-fit: cover; }
+.media.flat { border-radius: 0; }
+.media.sq { border-radius: var(--r-xl); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  border-radius: var(--r-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking);
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+}
+.btn:active { transform: scale(0.99); }
+.btn--dark { background: var(--ink); color: var(--on-dark); }
+.btn--dark:hover { opacity: 0.88; }
+.btn--light { background: var(--bg-muted); color: var(--ink); }
+.btn--light:hover { background: #efefef; }
+body.theme-muted .btn--light { background: #ededed; }
+
+/* ---------- chips ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: var(--s2); align-content: flex-start; width: 100%; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s2);
+  border-radius: var(--r-xs);
+  background: var(--bg-muted);
+  text-transform: lowercase;
+}
+body.theme-muted .chip { background: #ededed; }
+
+/* ---------- back arrow / inline link ---------- */
+.icon { width: 24px; height: 24px; flex-shrink: 0; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+.back:hover { background: rgba(30, 30, 30, 0.06); }
+.inline-link { display: inline-flex; align-items: center; gap: var(--s2); }
+.inline-link .icon { opacity: 0.5; }
+.inline-link:hover .icon { opacity: 0.85; }
+
+/* ============================================================
+   MAIN PAGE
+   ============================================================ */
+.site { max-width: 1232px; margin: 0 auto; padding: var(--page-pad); }
+
+.main-grid { display: flex; align-items: flex-start; gap: 12px; }
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+body.theme-muted .card { background: var(--bg-muted); }
+
+/* sidebar */
+.sidebar {
+  width: var(--sidebar);
+  flex-shrink: 0;
+  padding: var(--s4);
+  position: sticky;
+  top: var(--page-pad);
+  height: calc(100vh - var(--page-pad) * 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s16);
+  overflow: clip;
+}
+.avatar {
+  width: 141px;
+  height: 141px;
+  border-radius: var(--r-md);
+  object-fit: cover;
+  object-position: center;
+}
+.sidebar-actions { display: flex; flex-direction: column; gap: var(--s4); width: 100%; }
+
+/* feed */
+.feed {
+  flex: 1;
+  min-width: 0;
+  padding: var(--s16) var(--s8);
+  position: sticky;
+  top: var(--page-pad);
+  height: calc(100vh - var(--page-pad) * 2);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(30, 30, 30, 0.18) transparent;
+}
+.feed::-webkit-scrollbar { width: 8px; }
+.feed::-webkit-scrollbar-thumb {
+  background: rgba(30, 30, 30, 0.18);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.feed-inner {
+  width: var(--feed);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+  padding: var(--s8) 0;
+}
+.work { display: flex; flex-direction: column; align-items: center; gap: var(--s8); text-decoration: none; }
+.work-thumb {
+  width: 360px;
+  max-width: 100%;
+  aspect-ratio: 360 / 372;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--bg-muted);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.work-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+a.work:hover .work-thumb img { transform: scale(1.03); }
+.work-thumb.soon img { filter: blur(0.75px) brightness(0.8); }
+.work-thumb .soon-badge {
+  position: absolute;
+  color: #fff;
+  font-weight: 500;
+  z-index: 2;
+}
+.work-meta { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s4); width: 100%; }
+.work.is-soon .work-meta { opacity: 0.5; }
+
+/* footer block inside feed (итог) */
+.feed-foot { display: flex; flex-direction: column; align-items: center; gap: var(--s8); width: 100%; }
+.feed-foot .media { border-radius: var(--r-xl); aspect-ratio: 1/1; }
+.feed-foot-actions { display: flex; flex-direction: column; gap: var(--s4); width: 100%; }
+
+/* ============================================================
+   DOC PAGES (about / project)
+   ============================================================ */
+.doc {
+  position: relative;
+  padding: var(--s16) var(--page-pad);
+  display: flex;
+  justify-content: center;
+}
+.doc .back { position: absolute; left: var(--page-pad); top: var(--page-pad); }
+.doc-col {
+  width: var(--col);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s12);
+}
+.hero-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+.next-thumb {
+  width: 100%;
+  aspect-ratio: 360 / 372;
+  border-radius: var(--r-lg);
+  object-fit: cover;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  :root { --page-pad: 16px; --section-gap: 72px; }
+
+  .main-grid { flex-direction: column; gap: 16px; }
+  .sidebar {
+    width: 100%;
+    position: static;
+    height: auto;
+    min-height: 0;
+    gap: var(--s12);
+  }
+  /* на мобилке лента скроллится вместе со страницей */
+  .feed {
+    padding: 0;
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .feed-inner { width: 100%; max-width: 420px; margin: 0 auto; padding: 0; }
+  .work-thumb { width: 100%; }
+
+  /* на мобилке карточки без рамок — ближе к мобильному макету */
+  .card { border: none; border-radius: 0; background: transparent; }
+  body.theme-muted .card { background: transparent; }
+  .feed { border: none; }
+
+  .doc { padding: 64px var(--page-pad) var(--s12); }
+  .doc .back { top: 12px; left: 8px; }
+}
+
+@media (max-width: 480px) {
+  :root { --fs: 15px; }
+}
