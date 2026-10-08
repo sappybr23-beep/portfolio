@@ -6,6 +6,7 @@
   <title>Glamour.Pay — криптокошелёк · руслан ан</title>
   <meta name="description" content="Кейс: продуктовый дизайн криптокошелька Glamour.Pay, 2025." />
   <link rel="icon" href="../assets/img/3XN25RWRCCNYH8BC2KES4Z9NXA.png" />
+  <script>try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -14,145 +15,158 @@
 <body>
   <div class="site">
     <article class="card doc">
-      <a class="back" href="../index.html" aria-label="Назад">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 12H5" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
-          <path d="M9 6l-5 6 5 6" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-
-      <div class="doc-col">
-
-        <!-- hero -->
-        <div class="stack gap-6 full">
-          <img class="hero-icon" src="../assets/img/3XN25RWRCCNYH8BC2KES4Z9NXA.png" alt="Glamour.Pay" />
-          <div class="stack gap-1 full">
-            <div class="label">Glamour.Pay - твой криптокошелек</div>
-            <div class="muted-56">[продуктовый дизайн/2025]</div>
-          </div>
+      <div class="doc-bar">
+        <a class="back" href="../index.html" aria-label="Назад">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 6l-5 6 5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="controls">
+          <button class="lang-btn" type="button" aria-label="Сменить язык">eng</button>
+          <button class="theme-btn" type="button" aria-label="Сменить тему">
+            <svg class="icon i-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="icon i-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
         </div>
+      </div>
 
-        <!-- О проекте -->
-        <div class="stack gap-8 full">
-          <div class="stack gap-4 full">
-            <div class="label">О проекте</div>
-            <div class="muted">инновационный криптокошелёк, созданный для удобства и доступности в повседневном использовании. Он упрощает управление цифровыми активами, позволяет легко совершать транзакции, подключать фиатные счета и обеспечивает необходимый уровень безопасности без необходимости глубоких технических знаний.</div>
+      <div class="doc-scroll">
+        <div class="doc-col">
+
+          <!-- hero -->
+          <div class="stack gap-6 full">
+            <img class="hero-icon" src="../assets/img/3XN25RWRCCNYH8BC2KES4Z9NXA.png" alt="Glamour.Pay" />
+            <div class="stack gap-1 full">
+              <div class="label" data-en="Glamour.Pay - your crypto wallet">Glamour.Pay - твой криптокошелек</div>
+              <div class="muted-56" data-en="[product design/2025]">[продуктовый дизайн/2025]</div>
+            </div>
           </div>
-          <img class="media" src="../assets/img/2VWBEJR3V6M4RD6PMNGJKNXPB8.png" alt="Glamour.Pay — интерфейс" loading="lazy" />
+
+          <!-- О проекте -->
+          <div class="stack gap-8 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="about the project">О проекте</div>
+              <div class="muted" data-en="an innovative crypto wallet built for convenience and accessibility in everyday use. it simplifies managing digital assets, lets you make transactions easily, connect fiat accounts, and provides the necessary level of security without requiring deep technical knowledge.">инновационный криптокошелёк, созданный для удобства и доступности в повседневном использовании. Он упрощает управление цифровыми активами, позволяет легко совершать транзакции, подключать фиатные счета и обеспечивает необходимый уровень безопасности без необходимости глубоких технических знаний.</div>
+            </div>
+            <img class="media" src="../assets/img/2VWBEJR3V6M4RD6PMNGJKNXPB8.png" alt="Glamour.Pay — интерфейс" loading="lazy" />
+          </div>
+
+          <!-- Задача -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="the task">Задача</div>
+            <div class="muted pre" data-en="create a clear representation of a data-heavy service so that the information is easy to grasp not only for developers but also for everyday users.<br><br>while most similar solutions are bulky, hard-to-read tables, the key difference of Glamour.Pay is its intuitive and convenient information architecture.">Сформировать наглядное представление сервиса с большим объёмом данных так, чтобы информация была легко воспринимаема не только разработчиками, но и рядовыми пользователями.<br><br>В то время как большинство аналогичных решений представляют собой громоздкие и трудные для понимания таблицы, ключевое отличие Glamour.Pay заключается в интуитивно понятной и удобной информационной архитектуре.</div>
+          </div>
+
+          <!-- Бизнес-цели -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="business goals / success criteria">Бизнес-цели / Критерии успеха</div>
+            <div class="muted" data-en="i was brought onto the project at the moment when the previous designer “ghosted” and my client was urgently looking for a replacement. after the first call with the client, where he answered my questions in detail and told me about the product overall, i decided to lay out a list of problems to better understand the picture">Меня позвали на проект в тот момент, когда дизайнер “загасился” и мой клиент срочно пытался найти ему замену. После первого колла с заказчиком, на котором он подробно отвечал на мои вопросы и рассказывал о продукте в целом, я решил расписать список проблем для лучшего понимания картины</div>
+            <img class="media" src="../assets/img/62KDJ4ADJZQ1CYM8YCHNF6E831.png" alt="Список проблем" loading="lazy" />
+          </div>
+
+          <!-- Этапы работы -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="stages of work">Этапы работы</div>
+            <img class="media" src="../assets/img/017K7TNN9G8DZ2KS5QA8YKGJW6.png" alt="Этапы работы" loading="lazy" />
+          </div>
+
+          <!-- Этап 1 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="audit of the current designs [stage 1]">Аудит текущих макетов [этап 1]</div>
+              <div class="muted" data-en="what it was [ flow hierarchy ]">Что было [ Иерархия флоу ]</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media flat" src="../assets/img/7KVTWZ99SJ9MWDQ9M1VHQKN5A0.png" alt="Иерархия флоу — до" loading="lazy" />
+              <div class="muted pre" data-en="what it was [ page names / statuses ]">Что было [ названия / статусы страниц ]</div>
+            </div>
+            <img class="media" src="../assets/img/1TMD62AKJ7P0WW4ATMXNV8ZP21.png" alt="Названия и статусы страниц" loading="lazy" />
+            <img class="media flat" src="../assets/img/59D1BYCVACBC532C6ZNRTQ8RWJ.png" alt="Статусы страниц" loading="lazy" />
+          </div>
+
+          <!-- Этап 2 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="mapped the main flows as a diagram [stage 2]">Построил основные флоу в виде схемы [этап 2]</div>
+              <div class="muted" data-en="after long discussions with product, we decided to approve this map">После долгих обсуждений с продуктом, решили согласовать вот такую карту</div>
+            </div>
+            <img class="media" src="../assets/img/7582SGDCBWNW18VJ6VHVCW9XSA.png" alt="Карта флоу" loading="lazy" />
+          </div>
+
+          <!-- Этап 3 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="set up the design system and tokens [stage 3]">Оформил дизайн-систему и токены [этап 3]</div>
+              <div class="muted" data-en="at this stage i tidied up the components, added variables and gradually grew the number of components in the design system">На данном этапе привел в порядок компоненты, добавил переменные и постепенно увеличивал количество компонентов в дизайн-системе</div>
+            </div>
+            <img class="media" src="../assets/img/4NJJBZDJ8R1CD7TF7Z7SRW14R2.png" alt="Дизайн-система" loading="lazy" />
+            <div class="stack gap-4 full">
+              <div class="label" data-en="started with a redesign, added color accents">Начал с редизайна, добавил цветовые акценты</div>
+              <div class="muted" data-en="before i joined the project, the product looked dull and without accent colors, in a black-and-white style. i quickly drew a logo, prepared a favicon and added a purple accent color">До того, как я пришел на проект, продукт выглядел блекло и без акцентных цветов, в стилистике чб. Я отрисовал быстро логотип, подготовил фавиконку и добавил акцентный цвет в виде фиолетового</div>
+            </div>
+            <img class="media" src="../assets/img/0E8WYATAKK52CJCFXMWPH2P03H.png" alt="Редизайн, цветовые акценты" loading="lazy" />
+          </div>
+
+          <!-- Этап 4 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="rebuilt the page structure and naming [stage 4]">Пересобрал структуру страниц и названия [этап 4]</div>
+              <div class="muted" data-en="after analyzing the designs and talking with the dev team, i understood what they were missing and what needed tweaking — below i describe what i managed to implement">После анализа макетов и общения с командой разработчиков, понял чего им не хватает и что нужно подкрутить, ниже распишу что удалось внедрить</div>
+            </div>
+            <div class="stack gap-4 full">
+              <div class="label" data-en="what it became [flow hierarchy]">Что стало [Иерархия флоу]</div>
+              <img class="media" src="../assets/img/3S1G7G4FEG0C392127QBTJHPRY.png" alt="Иерархия флоу — после" loading="lazy" />
+            </div>
+            <div class="stack gap-4 full">
+              <div class="label pre" data-en="what it became [flow names / statuses]">Что стало [названия / статусы флоу ]</div>
+              <img class="media flat" src="../assets/img/0HV09K5S8WYWK5J07VF86Y9ZRE.png" alt="Названия и статусы флоу — после" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Этап 5 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="prepared a short help guide / documentation for the devs [stage 5]">Подготовил краткий хелп-гайд/документацию по проекту для разрабов [этап 5]</div>
+              <div class="muted" data-en="after analyzing the designs and talking with the dev team, i understood what they were missing and what needed tweaking — below i describe what i managed to implement">После анализа макетов и общения с командой разработчиков, понял чего им не хватает и что нужно подкрутить, ниже распишу что удалось внедрить</div>
+            </div>
+            <div class="stack gap-4 full">
+              <div class="label" data-en="what it became [flow hierarchy]">Что стало [Иерархия флоу]</div>
+              <img class="media" src="../assets/img/0YYFYDJCPQJ1YNCJXMA5N4ZA0N.png" alt="Документация — 1" loading="lazy" />
+            </div>
+            <img class="media" src="../assets/img/6TYXAAK9HK83JV4KVCW5F2QP6X.png" alt="Документация — 2" loading="lazy" />
+            <img class="media" src="../assets/img/25ZK5P40B8TZQ3TN03Q8CT0BT6.png" alt="Документация — 3" loading="lazy" />
+          </div>
+
+          <!-- Этап 6 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="draw the remaining flows [stage 6]">Отрисовать остальные флоу [этап 6]</div>
+              <div class="muted" data-en="then i dove deeper into the product and drew all the necessary flows — in 1 month i achieved +50 new screens">Далее углубился в продукт, отрисовал все необходимые флоу — за 1 месяц удалось добиться +50 новых экранов</div>
+            </div>
+            <img class="media flat" src="../assets/img/3MQN1DQJ51YVQKS9FA0C8AJ7QQ.png" alt="Экраны — 1" loading="lazy" />
+            <img class="media flat" src="../assets/img/5W94B26J2N2AFY94FYSD89VYM7.png" alt="Экраны — 2" loading="lazy" />
+            <div class="stack gap-4 full">
+              <img class="media flat" src="../assets/img/4RT6V3FK2N39XS1T8EHZ24TCJK.png" alt="Экраны — 3" loading="lazy" />
+              <img class="media flat" src="../assets/img/14J5DCZJ65HTSJREB2TZR8TXNV.png" alt="Экраны — 4" loading="lazy" />
+              <img class="media flat" src="../assets/img/1CK7H1E65NHV9Y8MBT1YRCTSGB.png" alt="Экраны — 5" loading="lazy" />
+              <img class="media flat" src="../assets/img/35RH3KDJAR9E5ETK5FVR8R04TJ.png" alt="Экраны — 6" loading="lazy" />
+            </div>
+          </div>
+
+          <img class="media flat full" src="../assets/img/4HQHZW4KF8SEZ4KD1QZB2R0RTP.png" alt="Итоговые экраны" loading="lazy" />
+
+          <!-- Полезные ссылки -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="useful links">Полезные ссылки</div>
+            <div class="muted" data-en="figma file — <a href=&quot;#&quot; style=&quot;text-decoration:underline&quot;>view here</a>">Макет в Фигме — <a href="#" style="text-decoration:underline">смотреть тут</a></div>
+          </div>
+
         </div>
-
-        <!-- Задача -->
-        <div class="stack gap-4 full">
-          <div class="label">Задача</div>
-          <div class="muted pre">Сформировать наглядное представление сервиса с большим объёмом данных так, чтобы информация была легко воспринимаема не только разработчиками, но и рядовыми пользователями.<br><br>В то время как большинство аналогичных решений представляют собой громоздкие и трудные для понимания таблицы, ключевое отличие Glamour.Pay заключается в интуитивно понятной и удобной информационной архитектуре.</div>
-        </div>
-
-        <!-- Бизнес-цели -->
-        <div class="stack gap-4 full">
-          <div class="label">Бизнес-цели / Критерии успеха</div>
-          <div class="muted pre">Меня позвали на проект в тот момент, когда дизайнер “загасился” и мой клиент срочно пытался найти ему замену. После первого колла с заказчиком, на котором он подробно отвечал на мои вопросы и рассказывал о продукте в целом, я решил расписать список проблем для лучшего понимания картины</div>
-          <img class="media" src="../assets/img/62KDJ4ADJZQ1CYM8YCHNF6E831.png" alt="Список проблем" loading="lazy" />
-        </div>
-
-        <!-- Этапы работы -->
-        <div class="stack gap-4 full">
-          <div class="label">Этапы работы</div>
-          <img class="media" src="../assets/img/017K7TNN9G8DZ2KS5QA8YKGJW6.png" alt="Этапы работы" loading="lazy" />
-        </div>
-
-        <!-- Этап 1 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Аудит текущих макетов [этап 1]</div>
-            <div class="muted">Что было [ Иерархия флоу ]</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media flat" src="../assets/img/7KVTWZ99SJ9MWDQ9M1VHQKN5A0.png" alt="Иерархия флоу — до" loading="lazy" />
-            <div class="muted pre">Что было [ названия / статусы страниц ]</div>
-          </div>
-          <img class="media" src="../assets/img/1TMD62AKJ7P0WW4ATMXNV8ZP21.png" alt="Названия и статусы страниц" loading="lazy" />
-          <img class="media flat" src="../assets/img/59D1BYCVACBC532C6ZNRTQ8RWJ.png" alt="Статусы страниц" loading="lazy" />
-        </div>
-
-        <!-- Этап 2 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Построил основные флоу в виде схемы [этап 2]</div>
-            <div class="muted">После долгих обсуждений с продуктом, решили согласовать вот такую карту</div>
-          </div>
-          <img class="media" src="../assets/img/7582SGDCBWNW18VJ6VHVCW9XSA.png" alt="Карта флоу" loading="lazy" />
-        </div>
-
-        <!-- Этап 3 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Оформил дизайн-систему и токены [этап 3]</div>
-            <div class="muted">На данном этапе привел в порядок компоненты, добавил переменные и постепенно увеличивал количество компонентов в дизайн-системе</div>
-          </div>
-          <img class="media" src="../assets/img/4NJJBZDJ8R1CD7TF7Z7SRW14R2.png" alt="Дизайн-система" loading="lazy" />
-          <div class="stack gap-4 full">
-            <div class="label">Начал с редизайна, добавил цветовые акценты</div>
-            <div class="muted">До того, как я пришел на проект, продукт выглядел блекло и без акцентных цветов, в стилистике чб. Я отрисовал быстро логотип, подготовил фавиконку и добавил акцентный цвет в виде фиолетового</div>
-          </div>
-          <img class="media" src="../assets/img/0E8WYATAKK52CJCFXMWPH2P03H.png" alt="Редизайн, цветовые акценты" loading="lazy" />
-        </div>
-
-        <!-- Этап 4 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Пересобрал структуру страниц и названия [этап 4]</div>
-            <div class="muted">После анализа макетов и общения с командой разработчиков, понял чего им не хватает и что нужно подкрутить, ниже распишу что удалось внедрить</div>
-          </div>
-          <div class="stack gap-4 full">
-            <div class="label">Что стало [Иерархия флоу]</div>
-            <img class="media" src="../assets/img/3S1G7G4FEG0C392127QBTJHPRY.png" alt="Иерархия флоу — после" loading="lazy" />
-          </div>
-          <div class="stack gap-4 full">
-            <div class="label pre">Что стало [названия / статусы флоу ]</div>
-            <img class="media flat" src="../assets/img/0HV09K5S8WYWK5J07VF86Y9ZRE.png" alt="Названия и статусы флоу — после" loading="lazy" />
-          </div>
-        </div>
-
-        <!-- Этап 5 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Подготовил краткий хелп-гайд/документацию по проекту для разрабов [этап 5]</div>
-            <div class="muted">После анализа макетов и общения с командой разработчиков, понял чего им не хватает и что нужно подкрутить, ниже распишу что удалось внедрить</div>
-          </div>
-          <div class="stack gap-4 full">
-            <div class="label">Что стало [Иерархия флоу]</div>
-            <img class="media" src="../assets/img/0YYFYDJCPQJ1YNCJXMA5N4ZA0N.png" alt="Документация — 1" loading="lazy" />
-          </div>
-          <img class="media" src="../assets/img/6TYXAAK9HK83JV4KVCW5F2QP6X.png" alt="Документация — 2" loading="lazy" />
-          <img class="media" src="../assets/img/25ZK5P40B8TZQ3TN03Q8CT0BT6.png" alt="Документация — 3" loading="lazy" />
-        </div>
-
-        <!-- Этап 6 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Отрисовать остальные флоу [этап 6]</div>
-            <div class="muted">Далее углубился в продукт, отрисовал все необходимые флоу — за 1 месяц удалось добиться +50 новых экранов</div>
-          </div>
-          <img class="media flat" src="../assets/img/3MQN1DQJ51YVQKS9FA0C8AJ7QQ.png" alt="Экраны — 1" loading="lazy" />
-          <img class="media flat" src="../assets/img/5W94B26J2N2AFY94FYSD89VYM7.png" alt="Экраны — 2" loading="lazy" />
-          <div class="stack gap-4 full">
-            <img class="media flat" src="../assets/img/4RT6V3FK2N39XS1T8EHZ24TCJK.png" alt="Экраны — 3" loading="lazy" />
-            <img class="media flat" src="../assets/img/14J5DCZJ65HTSJREB2TZR8TXNV.png" alt="Экраны — 4" loading="lazy" />
-            <img class="media flat" src="../assets/img/1CK7H1E65NHV9Y8MBT1YRCTSGB.png" alt="Экраны — 5" loading="lazy" />
-            <img class="media flat" src="../assets/img/35RH3KDJAR9E5ETK5FVR8R04TJ.png" alt="Экраны — 6" loading="lazy" />
-          </div>
-        </div>
-
-        <img class="media flat full" src="../assets/img/4HQHZW4KF8SEZ4KD1QZB2R0RTP.png" alt="Итоговые экраны" loading="lazy" />
-
-        <!-- Полезные ссылки -->
-        <div class="stack gap-4 full">
-          <div class="label">Полезные ссылки</div>
-          <div class="muted">Макет в Фигме — <a href="#" style="text-decoration:underline">смотреть тут</a></div>
-        </div>
-
+        <div class="scroll-fade" aria-hidden="true"></div>
       </div>
     </article>
   </div>
+  <script src="../js/app.js" defer></script>
 </body>
 </html>

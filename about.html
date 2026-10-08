@@ -6,6 +6,7 @@
   <title>обо мне — руслан ан</title>
   <meta name="description" content="Опыт, подход и инструменты продуктового дизайнера Руслана Ана." />
   <link rel="icon" href="assets/img/1DFH9G4M8G8WKBAH5VSBCNGBVE.jpg" />
+  <script>try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -14,116 +15,129 @@
 <body>
   <div class="site">
     <article class="card doc">
-      <a class="back" href="index.html" aria-label="Назад">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 12H5" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
-          <path d="M9 6l-5 6 5 6" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+      <div class="doc-bar">
+        <a class="back" href="index.html" aria-label="Назад">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 6l-5 6 5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="controls">
+          <button class="lang-btn" type="button" aria-label="Сменить язык">eng</button>
+          <button class="theme-btn" type="button" aria-label="Сменить тему">
+            <svg class="icon i-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="icon i-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
 
-      <div class="doc-col">
+      <div class="doc-scroll">
+        <div class="doc-col">
 
-        <!-- intro -->
-        <div class="stack gap-6 full">
-          <img class="avatar" src="assets/img/1DFH9G4M8G8WKBAH5VSBCNGBVE.jpg" alt="Руслан Ан" />
-          <div class="stack gap-1 full">
-            <div class="label">руслан ан</div>
-            <div class="muted-56">продуктовый дизайнер в paygine/best2pay</div>
+          <!-- intro -->
+          <div class="stack gap-6 full">
+            <img class="avatar" src="assets/img/1DFH9G4M8G8WKBAH5VSBCNGBVE.jpg" alt="Руслан Ан" />
+            <div class="stack gap-1 full">
+              <div class="label" data-en="ruslan an">руслан ан</div>
+              <div class="muted-56" data-en="product designer at paygine/best2pay">продуктовый дизайнер в paygine/best2pay</div>
+            </div>
+            <div class="stack gap-1 full">
+              <div class="label" data-en="6 years of experience">Опыт 6 лет</div>
+              <div class="muted-56">[2020 - 2026]</div>
+            </div>
           </div>
-          <div class="stack gap-1 full">
-            <div class="label">Опыт 6 лет</div>
-            <div class="muted-56">[2020 - 2026]</div>
+
+          <!-- Light Digital -->
+          <div class="stack gap-4 full">
+            <div class="label pre" data-en="product designer at Light Digital studio<br>[september 2021 - august 2025]">Продуктовый дизайнер в студии Light Digital<br>[сентябрь 2021 - август 2025]</div>
+            <div class="label" data-en="✱ tasks &amp; achievements:">✱ Задачи и достижения:</div>
+            <div class="muted stack gap-4 full">
+              <div data-en="built and rolled out a design system for EKIT [tokens, spacings, guidelines] → cut time-to-market by 40%, reduced developer rework by 30%">Разработал и внедрил дизайн-систему для сервиса EKIT [токены, спейсинги, гайдлайны] → сократил time-to-market на 40%, уменьшил количество правок от разработчиков на 30%</div>
+              <div data-en="designed the Facebank mobile app, running a series of UX tests [10+ users] → increased signup conversion by 22%">Спроектировал мобильное приложение Facebank, проведя серию UX-тестов [10+ пользователей] → увеличили конверсию регистрации на 22%</div>
+              <div data-en="designed landing pages for two products [Facebank / EKIT]">Спроектировал дизайн лендингов для двух продуктов [Facebank / EKIT]</div>
+              <div data-en="built the Abricos.market marketplace MVP, prepared the design system, presented to the client → the project passed review and went to pilot in 2.5 months">Разработал MVP маркетплейса Abricos.market, подготовил дизайн-систему, провёл презу заказчику → проект прошёл защиту и вышел в пилот за 2,5 месяца</div>
+              <div data-en="introduced a UX research process [hallway tests, surveys, competitive analysis] → improved design consistency across teams and improved time-to-market by 40%">Внедрил процесс UX-исследований [коридорные тесты, опросы, конкурентный анализ] → повысил согласованность макетов между командами и повысил time-to-market на 40%</div>
+              <div data-en="set up design reviews with developers → reduced UI bugs by 35%">Организовал дизайн-ревью с разработчиками → снизил количество UI-багов на 35%</div>
+              <div data-en="ran kick-off sessions with clients to present solutions">Проводил кик-офф сессии с клиентами для презентации решений</div>
+            </div>
           </div>
-        </div>
 
-        <!-- Light Digital -->
-        <div class="stack gap-4 full">
-          <div class="label pre">Продуктовый дизайнер в студии Light Digital<br>[сентябрь 2021 - август 2025]</div>
-          <div class="label">✱ Задачи и достижения:</div>
-          <div class="muted stack gap-4 full">
-            <div>Разработал и внедрил дизайн-систему для сервиса EKIT [токены, спейсинги, гайдлайны] → сократил time-to-market на 40%, уменьшил количество правок от разработчиков на 30%</div>
-            <div>Спроектировал мобильное приложение Facebank, проведя серию UX-тестов [10+ пользователей] → увеличили конверсию регистрации на 22%</div>
-            <div>Спроектировал дизайн лендингов для двух продуктов [Facebank / EKIT]</div>
-            <div>Разработал MVP маркетплейса Abricos.market, подготовил дизайн-систему, провёл презу заказчику → проект прошёл защиту и вышел в пилот за 2,5 месяца</div>
-            <div>Внедрил процесс UX-исследований [коридорные тесты, опросы, конкурентный анализ] → повысил согласованность макетов между командами и повысил time-to-market на 40%</div>
-            <div>Организовал дизайн-ревью с разработчиками → снизил количество UI-багов на 35%</div>
-            <div>Проводил кик-офф сессии с клиентами для презентации решений</div>
+          <!-- Sixhands -->
+          <div class="stack gap-4 full">
+            <div class="label pre" data-en="product designer at Sixhands studio<br>[september 2020 - february 2021]">Продуктовый дизайнер в студии Sixhands<br>[сентябрь 2020 - февраль 2021]</div>
+            <div class="label" data-en="✱ tasks &amp; achievements:">✱ Задачи и достижения:</div>
+            <div class="muted stack gap-4 full">
+              <div data-en="designed the interface for the ITMO library → improved navigation, cut content search time by 25%">Спроектировал интерфейс для библиотеки ITMO → улучшил навигацию, сократил время поиска контента на 25%</div>
+              <div data-en="built the Kinoscope MVP platform for renting photo and video gear → launched on time, attracted the first 1000 users">Разработал MVP-платформу Kinoscope для аренды фото и видеооборудования → проект запущен в срок, привлёк первых 1000 пользователей</div>
+              <div data-en="created a UI kit in a week, speeding up building new screens by 30%">Создал UI-kit за неделю, что позволило ускорить сборку новых экранов на 30%</div>
+              <div data-en="introduced design reviews and closer collaboration with development → improved design consistency across teams and improved time-to-market by 40%">Внедрил процесс дизайн-ревью и совместную работу с разработкой → повысил согласованность макетов между командами и повысил time-to-market на 40%</div>
+              <div data-en="ran kick-off sessions with clients to present solutions">Проводил кик-офф сессии с клиентами для презентации решений</div>
+              <div data-en="briefed clients">Брифовал клиентов</div>
+            </div>
           </div>
-        </div>
 
-        <!-- Sixhands -->
-        <div class="stack gap-4 full">
-          <div class="label pre">Продуктовый дизайнер в студии Sixhands<br>[сентябрь 2020 - февраль 2021]</div>
-          <div class="label">✱ Задачи и достижения:</div>
-          <div class="muted stack gap-4 full">
-            <div>Спроектировал интерфейс для библиотеки ITMO → улучшил навигацию, сократил время поиска контента на 25%</div>
-            <div>Разработал MVP-платформу Kinoscope для аренды фото и видеооборудования → проект запущен в срок, привлёк первых 1000 пользователей</div>
-            <div>Создал UI-kit за неделю, что позволило ускорить сборку новых экранов на 30%</div>
-            <div>Внедрил процесс дизайн-ревью и совместную работу с разработкой → повысил согласованность макетов между командами и повысил time-to-market на 40%</div>
-            <div>Проводил кик-офф сессии с клиентами для презентации решений</div>
-            <div>Брифовал клиентов</div>
+          <!-- методы -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="i use in my work">использую в работе</div>
+            <div class="chips">
+              <span class="chip">job story</span>
+              <span class="chip">user story</span>
+              <span class="chip">userflow</span>
+              <span class="chip" data-en="segmentation">сегментирование</span>
+              <span class="chip" data-en="benchmarking">бенчмаркинг</span>
+              <span class="chip" data-en="atomic design">атомарный дизайн</span>
+              <span class="chip">value proposition canvas</span>
+              <span class="chip" data-en="surveys">опросы</span>
+              <span class="chip" data-en="in-depth interviews">глубинные интервью</span>
+              <span class="chip">rice/ice</span>
+            </div>
           </div>
-        </div>
 
-        <!-- методы -->
-        <div class="stack gap-4 full">
-          <div class="label">использую в работе</div>
-          <div class="chips">
-            <span class="chip">job story</span>
-            <span class="chip">user story</span>
-            <span class="chip">userflow</span>
-            <span class="chip">сегментирование</span>
-            <span class="chip">бенчмаркинг</span>
-            <span class="chip">атомарный дизайн</span>
-            <span class="chip">value proposition canvas</span>
-            <span class="chip">опросы</span>
-            <span class="chip">глубинные интервью</span>
-            <span class="chip">rice/ice</span>
+          <!-- инструменты -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="tools">инструменты</div>
+            <div class="chips">
+              <span class="chip">figma</span>
+              <span class="chip">figmajam</span>
+              <span class="chip">pathway</span>
+              <span class="chip">spline3d</span>
+              <span class="chip">framer</span>
+              <span class="chip">jira</span>
+              <span class="chip">trello</span>
+              <span class="chip">lottielab</span>
+              <span class="chip">codex</span>
+              <span class="chip">claude</span>
+              <span class="chip">gemini</span>
+            </div>
           </div>
-        </div>
 
-        <!-- инструменты -->
-        <div class="stack gap-4 full">
-          <div class="label">инструменты</div>
-          <div class="chips">
-            <span class="chip">figma</span>
-            <span class="chip">figmajam</span>
-            <span class="chip">pathway</span>
-            <span class="chip">spline3d</span>
-            <span class="chip">framer</span>
-            <span class="chip">jira</span>
-            <span class="chip">trello</span>
-            <span class="chip">lottielab</span>
-            <span class="chip">codex</span>
-            <span class="chip">claude</span>
-            <span class="chip">gemini</span>
+          <!-- менторство -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="i have experience mentoring junior designers">имею опыт работы с молодыми дизайнерами</div>
+            <img class="media" src="assets/img/08043FY16DWBXY1ECYTWY4B6JK.png" alt="Работа с молодыми дизайнерами" loading="lazy" />
+            <div class="muted" data-en="Valeria — got a job as a Junior designer at Gazprom Neft">Валерия — устроилась Junior-дизайнером в Газпромнефть</div>
           </div>
-        </div>
 
-        <!-- менторство -->
-        <div class="stack gap-4 full">
-          <div class="label">имею опыт работы с молодыми дизайнерами</div>
-          <img class="media" src="assets/img/08043FY16DWBXY1ECYTWY4B6JK.png" alt="Работа с молодыми дизайнерами" loading="lazy" />
-          <div class="muted">Валерия — устроилась Junior-дизайнером в Газпромнефть</div>
-        </div>
+          <!-- фотогалерея -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="photo gallery [2012-2021]">фотогалерея [2012-2021]</div>
+            <div class="muted pre" data-en="a long time ago photography was my favorite hobby, and to immortalize that passion i put together a photo gallery as a reminder that i existed<br>⇾ <a href=&quot;https://an23gallery.framer.website/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; style=&quot;text-decoration:underline&quot;>view the works</a>">Когда-то давно фотография была моим любимым занятием, ну и для того, чтобы увековечить свою страсть, я собрал фотогалерею на память о том, что я существовал<br>⇾ <a href="https://an23gallery.framer.website/" target="_blank" rel="noopener" style="text-decoration:underline">Посмотреть работы</a></div>
+            <img class="media flat" src="assets/img/5QWVMSG8WJEMT5ZVHH015KN7EW.png" alt="Фотогалерея" loading="lazy" />
+          </div>
 
-        <!-- фотогалерея -->
-        <div class="stack gap-4 full">
-          <div class="label">фотогалерея [2021-2021]</div>
-          <div class="muted pre">Когда-то давно фотография была моим любимым занятием, ну и для того, чтобы увековечить свою страсть, я собрал фотогалерею на память о том, что я существовал<br>⇾ <a href="https://an23gallery.framer.website/" target="_blank" rel="noopener" style="text-decoration:underline">Посмотреть работы</a></div>
-          <img class="media flat" src="assets/img/5QWVMSG8WJEMT5ZVHH015KN7EW.png" alt="Фотогалерея" loading="lazy" />
-        </div>
+          <!-- контакт -->
+          <div class="stack gap-4 full">
+            <div class="label pre" data-en="i'm open to interesting projects.<br>i reply quickly on telegram 👋">Я открыт для интересных проектов.<br>Отвечаю оперативно телеграмме 👋</div>
+            <div data-en="thanks for your attention ❤️">Благодарю за внимание❤️</div>
+            <img class="media" src="assets/img/30GMK2QB4HCAKXG7DYGD22KYHZ.png" alt="" loading="lazy" />
+            <a class="btn btn--dark full" href="https://t.me/antwentythree" target="_blank" rel="noopener" data-en="message on telegram">написать в тг</a>
+          </div>
 
-        <!-- контакт -->
-        <div class="stack gap-4 full">
-          <div class="label pre">Я открыт для интересных проектов.<br>Отвечаю оперативно телеграмме 👋</div>
-          <div>Благодарю за внимание❤️</div>
-          <img class="media" src="assets/img/30GMK2QB4HCAKXG7DYGD22KYHZ.png" alt="" loading="lazy" />
-          <a class="btn btn--dark full" href="https://t.me/antwentythree" target="_blank" rel="noopener">написать в тг</a>
         </div>
-
+        <div class="scroll-fade" aria-hidden="true"></div>
       </div>
     </article>
   </div>
+  <script src="js/app.js" defer></script>
 </body>
 </html>

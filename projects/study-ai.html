@@ -6,6 +6,7 @@
   <title>STUDY.AI — AI-репетитор · руслан ан</title>
   <meta name="description" content="Кейс: продуктовый дизайн образовательного AI-сервиса STUDY.AI, 2025." />
   <link rel="icon" href="../assets/img/75H2XRD8EMMW9AT4739VMQSVYT.png" />
+  <script>try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -14,181 +15,194 @@
 <body>
   <div class="site">
     <article class="card doc">
-      <a class="back" href="../index.html" aria-label="Назад">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 12H5" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
-          <path d="M9 6l-5 6 5 6" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-
-      <div class="doc-col">
-
-        <!-- hero -->
-        <div class="stack gap-6 full">
-          <img class="hero-icon" src="../assets/img/75H2XRD8EMMW9AT4739VMQSVYT.png" alt="STUDY.AI" />
-          <div class="stack gap-1 full">
-            <div class="label">STUDY.AI — твой персональный AI-репетитор</div>
-            <div class="muted-56">[продуктовый дизайн/2025]</div>
-          </div>
+      <div class="doc-bar">
+        <a class="back" href="../index.html" aria-label="Назад">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 6l-5 6 5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="controls">
+          <button class="lang-btn" type="button" aria-label="Сменить язык">eng</button>
+          <button class="theme-btn" type="button" aria-label="Сменить тему">
+            <svg class="icon i-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="icon i-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
         </div>
+      </div>
 
-        <!-- О проекте -->
-        <div class="stack gap-8 full">
-          <div class="stack gap-4 full">
-            <div class="label">О проекте</div>
-            <div class="muted">Это образовательный сервис на базе AI, который выступает в роли персонального репетитора. Пользователь взаимодействует с интеллектуальной системой, которая объясняет материал, отвечает на вопросы, адаптируется под уровень знаний и помогает с заданиями. Сервис дополняет или заменяет живого учителя, делая обучение доступным и персонализированным</div>
+      <div class="doc-scroll">
+        <div class="doc-col">
+
+          <!-- hero -->
+          <div class="stack gap-6 full">
+            <img class="hero-icon" src="../assets/img/75H2XRD8EMMW9AT4739VMQSVYT.png" alt="STUDY.AI" />
+            <div class="stack gap-1 full">
+              <div class="label" data-en="STUDY.AI — your personal AI tutor">STUDY.AI — твой персональный AI-репетитор</div>
+              <div class="muted-56" data-en="[product design/2025]">[продуктовый дизайн/2025]</div>
+            </div>
           </div>
-          <img class="media" src="../assets/img/063XY4TWKBQ1MQWDTMRM5E6431.png" alt="STUDY.AI — интерфейс" loading="lazy" />
+
+          <!-- О проекте -->
+          <div class="stack gap-8 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="about the project">О проекте</div>
+              <div class="muted" data-en="an AI-based education service that acts as a personal tutor. the user interacts with an intelligent system that explains the material, answers questions, adapts to the knowledge level and helps with assignments. the service complements or replaces a live teacher, making learning accessible and personalized">Это образовательный сервис на базе AI, который выступает в роли персонального репетитора. Пользователь взаимодействует с интеллектуальной системой, которая объясняет материал, отвечает на вопросы, адаптируется под уровень знаний и помогает с заданиями. Сервис дополняет или заменяет живого учителя, делая обучение доступным и персонализированным</div>
+            </div>
+            <img class="media" src="../assets/img/063XY4TWKBQ1MQWDTMRM5E6431.png" alt="STUDY.AI — интерфейс" loading="lazy" />
+          </div>
+
+          <!-- Задача -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="the task">Задача</div>
+            <div class="muted" data-en="design an MVP of the service that lets the user start learning quickly and see the product's value from the first steps">Спроектировать MVP сервиса, который позволит пользователю быстро начать обучение и увидеть ценность продукта с первых шагов</div>
+            <img class="media flat" src="../assets/img/3KHRWW8QWAPQ06P1QHQHBR4BFR.png" alt="Задача" loading="lazy" />
+          </div>
+
+          <!-- Бизнес-цели -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="business goals / success criteria">Бизнес-цели / Критерии успеха</div>
+            <div class="muted" data-en="briefly laid out what goals the business pursued and by which criteria success was measured">Кратко расписал какие цели преследовал бизнес и по каким требованиям оценивали успех</div>
+            <img class="media flat" src="../assets/img/246598EG3XHS1PSY9TXWM0AXPB.png" alt="Бизнес-цели" loading="lazy" />
+          </div>
+
+          <!-- Этап 1 -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="diving in and understanding the task [stage 1]">Погружение и понимание задачи [этап 1]</div>
+            <div class="stack gap-2 full">
+              <img class="media" src="../assets/img/5QVR4G14VAYMY8Y5G1Q35Y4BDM.png" alt="Погружение — 1" loading="lazy" />
+              <img class="media" src="../assets/img/0F0RRN0RSTTNJ2E7P9N3XQ4KAW.png" alt="Погружение — 2" loading="lazy" />
+              <img class="media" src="../assets/img/7DM37P5CAMTFV9AT2QN9CQR6TY.png" alt="Погружение — 3" loading="lazy" />
+              <img class="media" src="../assets/img/333BGKH1REEMY5QWNST1FPDK8M.png" alt="Погружение — 4" loading="lazy" />
+              <img class="media" src="../assets/img/06AD0AACJFZGGHXJWR3Q56ED3S.png" alt="Погружение — 5" loading="lazy" />
+              <img class="media" src="../assets/img/7VE9WZ1NVEYN606PQ1Q2ZNCQDM.png" alt="Погружение — 6" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Этап 2 -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="work plan [stage 2]">План работ [этап 2]</div>
+            <div class="muted" data-en="after quickly scoring the task, i developed a work plan that included">После быстрого скоринга задачи, разработал план работ, который включал в себя</div>
+            <div class="stack gap-2 full">
+              <img class="media" src="../assets/img/0Z286JGWVPE6PDFTJ5R3NTWJB4.png" alt="План работ — 1" loading="lazy" />
+              <img class="media" src="../assets/img/4P3D4DBYGZBGMZWGVGZMHAFS1H.png" alt="План работ — 2" loading="lazy" />
+              <img class="media" src="../assets/img/54SM73ZY41PBHQRH96AW89J2NV.png" alt="План работ — 3" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Этап 3 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="benchmarking the market leaders and gathering references [stage 3]">Бенч топов на рынке и подбор рефов [этап 3]</div>
+              <div class="muted" data-en="then i sat down to benchmark the market leaders and started collecting references for the design">Далее засел за бенч топов рынка и начал собирать рефы для дизайна</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media flat" src="../assets/img/20SP12F551CVNXH1BTVZ61KQK3.png" alt="Бенчмарк — 1" loading="lazy" />
+              <div class="muted" data-en="put together a comparison table of AI tutors in Russia and wrote down quick conclusions">Собрал сравнительную таблицу AI-репетиторов в РФ и расписал быстрые выводы</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/219KHSCZ98QZH7K12VSVAR1NTT.png" alt="Бенчмарк — 2" loading="lazy" />
+              <div class="muted" data-en="then i collected the strongest AI services for school students in Russia and wrote down quick conclusions">Далее собрал лютые AI-сервисы для школьников в РФ и расписал быстрые выводы</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/1DRJ9WM8B8GZF7BK2VTBMV1BV6.png" alt="Геймификация" loading="lazy" />
+              <div class="muted" data-en="then i decided to gather information about mechanics and frameworks related to gamification">Потом решил собрать информацию про механики и фреймворки, связанные с геймификацией</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/5PMEWFVWQFGJ4PW6VGYQNEFF41.png" alt="Саммари фич" loading="lazy" />
+              <div class="muted" data-en="and finally i put together a summary of features that could be added to the product — prioritized by RICE/ICE">Ну и под конец собрал саммари по фичам, которые можно внедрить в продукт — приоритизация по RICE/ICE</div>
+            </div>
+          </div>
+
+          <!-- Этап 4 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="references + userflow [stage 4]">Референсы + юзерфлоу [этап 4]</div>
+              <div class="muted" data-en="after doing the research, i went on to think about the MVP flow and looked for references in parallel">После того, как я провёл ресёрч, пошёл думать над флоу MVP и параллельно искал рефы</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/7ETC06TGG7MKGRCTTRRPDDYQ1S.png" alt="Референсы" loading="lazy" />
+              <div class="muted" data-en="after quickly gathering references i understood how i wanted the interface to look (the screen shows only a small part of the references, though there were actually many more)">После быстрого сбора референсов я понял, как хочу чтобы выглядел интерфейс (на экране лишь небольшой кусок с референсами, хотя по сути их было намного больше)</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/6CQQF0F81H285M8X9PKYW4KTJ3.png" alt="Юзерфлоу" loading="lazy" />
+              <div class="muted" data-en="then, after collecting references, we agreed on the MVP user flow with the team">Далее после сбора рефов согласовали с командой MVP ю-флоу</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/6758TKG0TP25A4ZCGXC05VXY8W.png" alt="Бадди-ассистент" loading="lazy" />
+              <div class="muted" data-en="next i thought about the user's emotion and loyalty, so as a team we decided to have a buddy assistant that would be an integral part of the communication between the brand and the user">Следующим шагом я подумал об эмоциональности и лояльности пользователя, поэтому командой мы решили, что у нас будет бадди-ассистент, который будет неотъемлемой частью коммуникации бренда и пользователя</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/5PMEWFVWQFGJ4PW6VGYQNEFF41.png" alt="Саммари фич" loading="lazy" />
+              <div class="muted" data-en="and finally i put together a summary of features that could be added to the product — prioritized by RICE/ICE">Ну и под конец собрал саммари по фичам, которые можно внедрить в продукт — приоритизация по RICE/ICE</div>
+            </div>
+          </div>
+
+          <!-- Этап 5 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="building the project's design system [stage 5]">Сборка дизайн-системы проекта [этап 5]</div>
+              <div class="muted" data-en="before starting, i decided to gather tokens for color, text, radii, spacings etc., and then, after the MVP flow was approved, i finished the components">Перед тем как начать, решил для себя собрать токены цвета, текста, радиусов, спейсингов и тд, а далее уже после согласования MVP-флоу решил добить компоненты</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/0YMZR5JJKK7HAWDKYR04SDP97X.png" alt="Токены и компоненты" loading="lazy" />
+              <div class="muted" data-en="first i decided to list the tokens/components i would need to create for the MVP (the image shows only a small list; over time it grew — selects / pop-ups / headers etc. were added)">Первым делом я решил расписать список токенов/компонентов, которые мне необходимо будет создать для MVP (на картинке отображён только небольшой список, со временем он увеличился — добавились селекты / поп-апы / хедеры и тд)</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/2STHFYMKARYEF72K6QMA2N1JSP.png" alt="Переменные" loading="lazy" />
+              <div class="muted" data-en="then i started collecting variables: text, primitives, semantic colors, xBase, spacings, radii, typography">Далее решил начать собирать переменные: текста, примитивов, семантических цветов, xBase, спейсы, радиусы, типографика</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/6TADC4JXPF4JAY5YS0J5FBE30X.png" alt="Компоненты" loading="lazy" />
+              <div class="muted" data-en="then i started building components: buttons, inputs, icons, logo/favicon, drop-lists, selects, checkboxes, text fields etc.">Далее решил начать собирать компоненты: кнопки, инпуты, иконки, лого/фавиконку, дроп-листы, селект, чекбоксы, текстфилды и тд</div>
+            </div>
+          </div>
+
+          <!-- Этап 6 -->
+          <div class="stack gap-6 full">
+            <div class="stack gap-4 full">
+              <div class="label" data-en="designing the screens [stage 6]">Проектирование макетов [этап 6]</div>
+              <div class="muted" data-en="everything's clear here — i started designing the screens, and i'll show the rest with images">Тут всё понятно — я начал проектировать макеты, далее всё отображу картинками</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/0CG799FY1X9T9R9E8AHYR1B1MB.png" alt="Экран входа" loading="lazy" />
+              <div class="muted" data-en="designed the initial entry screen">Спроектировал начальный экран входа</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/5BC84NG7RPFP6F6TPHG0KVX1FM.png" alt="Генерация курса" loading="lazy" />
+              <div class="muted" data-en="then the user enters the course topic, and the system generates a course for it based on data">Далее пользователь вводит тему курса, а система на основе данных уже генерирует для неё курс</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/0ETYT9B8HVH0WQD7VWBM546W31.png" alt="Уточнение уровня" loading="lazy" />
+              <div class="muted" data-en="the next step is to clarify the user's level so we can prepare the course program more precisely">Следующим шагом мы должны уточнить, каким уровнем обладает пользователь, чтобы подготовить программу курса более точно</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/3A7F022FGFPKTW4MWR76BEEB6D.png" alt="Входной тест" loading="lazy" />
+              <div class="muted" data-en="steps 3 and 4 are taking a short test so the system understands the user's abilities well and doesn't get the personal course level wrong">Шагом 3 и 4 является прохождение небольшого теста, чтобы система хорошо поняла способности пользователя и не ошиблась с уровнем генерации персонального курса</div>
+            </div>
+            <div class="stack gap-4 full">
+              <img class="media" src="../assets/img/32CEPFA1HQT0WTMJRMKQQ9Y611.png" alt="Главный экран, модули, уроки" loading="lazy" />
+              <div class="muted" data-en="and as the final step i drew the home screen, the modules screen, the lessons screen and the lesson itself">Ну и финальным этапом отрисовал главный экран, экран модулей, экран уроков и самого урока</div>
+            </div>
+          </div>
+
+          <!-- Результаты -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="project results">Результаты проекта</div>
+            <img class="media flat" src="../assets/img/0M3NF4EG7SBB9JS5EPZXWF2CMB.png" alt="Результаты проекта" loading="lazy" />
+          </div>
+
+          <!-- Полезные ссылки -->
+          <div class="stack gap-4 full">
+            <div class="label" data-en="useful links">Полезные ссылки</div>
+            <div class="muted" data-en="figma file — <a href=&quot;#&quot; style=&quot;text-decoration:underline&quot;>view here</a>">Макет в Фигме — <a href="#" style="text-decoration:underline">смотреть тут</a></div>
+          </div>
+
         </div>
-
-        <!-- Задача -->
-        <div class="stack gap-4 full">
-          <div class="label">Задача</div>
-          <div class="muted">Спроектировать MVP сервиса, который позволит пользователю быстро начать обучение и увидеть ценность продукта с первых шагов</div>
-          <img class="media flat" src="../assets/img/3KHRWW8QWAPQ06P1QHQHBR4BFR.png" alt="Задача" loading="lazy" />
-        </div>
-
-        <!-- Бизнес-цели -->
-        <div class="stack gap-4 full">
-          <div class="label">Бизнес-цели / Критерии успеха</div>
-          <div class="muted">Кратко расписал какие цели преследовал бизнес и по каким требованиям оценивали успех</div>
-          <img class="media flat" src="../assets/img/246598EG3XHS1PSY9TXWM0AXPB.png" alt="Бизнес-цели" loading="lazy" />
-        </div>
-
-        <!-- Этап 1 -->
-        <div class="stack gap-4 full">
-          <div class="label">Погружение и понимание задачи [этап 1]</div>
-          <div class="stack gap-2 full">
-            <img class="media" src="../assets/img/5QVR4G14VAYMY8Y5G1Q35Y4BDM.png" alt="Погружение — 1" loading="lazy" />
-            <img class="media" src="../assets/img/0F0RRN0RSTTNJ2E7P9N3XQ4KAW.png" alt="Погружение — 2" loading="lazy" />
-            <img class="media" src="../assets/img/7DM37P5CAMTFV9AT2QN9CQR6TY.png" alt="Погружение — 3" loading="lazy" />
-            <img class="media" src="../assets/img/333BGKH1REEMY5QWNST1FPDK8M.png" alt="Погружение — 4" loading="lazy" />
-            <img class="media" src="../assets/img/06AD0AACJFZGGHXJWR3Q56ED3S.png" alt="Погружение — 5" loading="lazy" />
-            <img class="media" src="../assets/img/7VE9WZ1NVEYN606PQ1Q2ZNCQDM.png" alt="Погружение — 6" loading="lazy" />
-          </div>
-        </div>
-
-        <!-- Этап 2 -->
-        <div class="stack gap-4 full">
-          <div class="label">План работ [этап 2]</div>
-          <div class="muted">После быстрого скоринга задачи, разработал план работ, который включал в себя</div>
-          <div class="stack gap-2 full">
-            <img class="media" src="../assets/img/0Z286JGWVPE6PDFTJ5R3NTWJB4.png" alt="План работ — 1" loading="lazy" />
-            <img class="media" src="../assets/img/4P3D4DBYGZBGMZWGVGZMHAFS1H.png" alt="План работ — 2" loading="lazy" />
-            <img class="media" src="../assets/img/54SM73ZY41PBHQRH96AW89J2NV.png" alt="План работ — 3" loading="lazy" />
-          </div>
-        </div>
-
-        <!-- Этап 3 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Бенч топов на рынке и подбор рефов [этап 3]</div>
-            <div class="muted">Далее засел за бенч топов рынка и начал собирать рефы для дизайна</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media flat" src="../assets/img/20SP12F551CVNXH1BTVZ61KQK3.png" alt="Бенчмарк — 1" loading="lazy" />
-            <div class="muted">Собрал сравнительную таблицу AI-репетиторов в РФ и расписал быстрые выводы</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/219KHSCZ98QZH7K12VSVAR1NTT.png" alt="Бенчмарк — 2" loading="lazy" />
-            <div class="muted">Далее собрал лютые AI-сервисы для школьников в РФ и расписал быстрые выводы</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/1DRJ9WM8B8GZF7BK2VTBMV1BV6.png" alt="Геймификация" loading="lazy" />
-            <div class="muted">Потом решил собрать информацию про механики и фреймворки, связанные с геймификацией</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/5PMEWFVWQFGJ4PW6VGYQNEFF41.png" alt="Саммари фич" loading="lazy" />
-            <div class="muted">Ну и под конец собрал саммари по фичам, которые можно внедрить в продукт — приоритизация по RICE/ICE</div>
-          </div>
-        </div>
-
-        <!-- Этап 4 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Референсы + юзерфлоу [этап 4]</div>
-            <div class="muted">После того, как я провёл ресёрч, пошёл думать над флоу MVP и параллельно искал рефы</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/7ETC06TGG7MKGRCTTRRPDDYQ1S.png" alt="Референсы" loading="lazy" />
-            <div class="muted">После быстрого сбора референсов я понял, как хочу чтобы выглядел интерфейс (на экране лишь небольшой кусок с референсами, хотя по сути их было намного больше)</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/6CQQF0F81H285M8X9PKYW4KTJ3.png" alt="Юзерфлоу" loading="lazy" />
-            <div class="muted">Далее после сбора рефов согласовали с командой MVP ю-флоу</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/6758TKG0TP25A4ZCGXC05VXY8W.png" alt="Бадди-ассистент" loading="lazy" />
-            <div class="muted">Следующим шагом я подумал об эмоциональности и лояльности пользователя, поэтому командой мы решили, что у нас будет бадди-ассистент, который будет неотъемлемой частью коммуникации бренда и пользователя</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/5PMEWFVWQFGJ4PW6VGYQNEFF41.png" alt="Саммари фич" loading="lazy" />
-            <div class="muted">Ну и под конец собрал саммари по фичам, которые можно внедрить в продукт — приоритизация по RICE/ICE</div>
-          </div>
-        </div>
-
-        <!-- Этап 5 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Сборка дизайн-системы проекта [этап 5]</div>
-            <div class="muted">Перед тем как начать, решил для себя собрать токены цвета, текста, радиусов, спейсингов и тд, а далее уже после согласования MVP-флоу решил добить компоненты</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/0YMZR5JJKK7HAWDKYR04SDP97X.png" alt="Токены и компоненты" loading="lazy" />
-            <div class="muted">Первым делом я решил расписать список токенов/компонентов, которые мне необходимо будет создать для MVP (на картинке отображён только небольшой список, со временем он увеличился — добавились селекты / поп-апы / хедеры и тд)</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/2STHFYMKARYEF72K6QMA2N1JSP.png" alt="Переменные" loading="lazy" />
-            <div class="muted">Далее решил начать собирать переменные: текста, примитивов, семантических цветов, xBase, спейсы, радиусы, типографика</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/6TADC4JXPF4JAY5YS0J5FBE30X.png" alt="Компоненты" loading="lazy" />
-            <div class="muted">Далее решил начать собирать компоненты: кнопки, инпуты, иконки, лого/фавиконку, дроп-листы, селект, чекбоксы, текстфилды и тд</div>
-          </div>
-        </div>
-
-        <!-- Этап 6 -->
-        <div class="stack gap-6 full">
-          <div class="stack gap-4 full">
-            <div class="label">Проектирование макетов [этап 6]</div>
-            <div class="muted">Тут всё понятно — я начал проектировать макеты, далее всё отображу картинками</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/0CG799FY1X9T9R9E8AHYR1B1MB.png" alt="Экран входа" loading="lazy" />
-            <div class="muted">Спроектировал начальный экран входа</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/5BC84NG7RPFP6F6TPHG0KVX1FM.png" alt="Генерация курса" loading="lazy" />
-            <div class="muted">Далее пользователь вводит тему курса, а система на основе данных уже генерирует для неё курс</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/0ETYT9B8HVH0WQD7VWBM546W31.png" alt="Уточнение уровня" loading="lazy" />
-            <div class="muted">Следующим шагом мы должны уточнить, каким уровнем обладает пользователь, чтобы подготовить программу курса более точно</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/3A7F022FGFPKTW4MWR76BEEB6D.png" alt="Входной тест" loading="lazy" />
-            <div class="muted">Шагом 3 и 4 является прохождение небольшого теста, чтобы система хорошо поняла способности пользователя и не ошиблась с уровнем генерации персонального курса</div>
-          </div>
-          <div class="stack gap-4 full">
-            <img class="media" src="../assets/img/32CEPFA1HQT0WTMJRMKQQ9Y611.png" alt="Главный экран, модули, уроки" loading="lazy" />
-            <div class="muted">Ну и финальным этапом отрисовал главный экран, экран модулей, экран уроков и самого урока</div>
-          </div>
-        </div>
-
-        <!-- Результаты -->
-        <div class="stack gap-4 full">
-          <div class="label">Результаты проекта</div>
-          <img class="media flat" src="../assets/img/0M3NF4EG7SBB9JS5EPZXWF2CMB.png" alt="Результаты проекта" loading="lazy" />
-        </div>
-
-        <!-- Полезные ссылки -->
-        <div class="stack gap-4 full">
-          <div class="label">Полезные ссылки</div>
-          <div class="muted">Макет в Фигме — <a href="#" style="text-decoration:underline">смотреть тут</a></div>
-        </div>
-
+        <div class="scroll-fade" aria-hidden="true"></div>
       </div>
     </article>
   </div>
+  <script src="../js/app.js" defer></script>
 </body>
 </html>
