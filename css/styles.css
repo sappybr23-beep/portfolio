@@ -46,8 +46,8 @@
 
 /* ---------- тёмная тема: инверсия цветов (серые кнопки/чипы не меняются) ---------- */
 :root[data-theme="dark"] {
-  --bg: #1e1e1e;
-  --bg-muted: #1e1e1e;
+  --bg: #010101;
+  --bg-muted: #010101;
   --ink: #f4f4f4;
   --border: rgba(255, 255, 255, 0.12);
 }
@@ -242,6 +242,10 @@ body.theme-muted .card { background: var(--bg-muted); }
   border-bottom-left-radius: var(--r-lg);
   border-bottom-right-radius: var(--r-lg);
 }
+
+/* правая панель с проектами — без рамки и скруглений */
+.card.feed { border: none; border-radius: 0; }
+.feed .scroll-fade { border-radius: 0; }
 
 /* переключатели темы / языка */
 .controls { display: flex; align-items: center; gap: var(--s4); flex-shrink: 0; }
