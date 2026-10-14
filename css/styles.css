@@ -247,6 +247,10 @@ body.theme-muted .card { background: var(--bg-muted); }
 .card.feed { border: none; border-radius: 0; }
 .feed .scroll-fade { border-radius: 0; }
 
+/* «обо мне» и кейсы — без обводки (обводка только у сайдбара на главной) */
+.card.doc { border: none; border-radius: 0; }
+.doc .scroll-fade { border-radius: 0; }
+
 /* переключатели темы / языка */
 .controls { display: flex; align-items: center; gap: var(--s4); flex-shrink: 0; }
 .lang-btn, .theme-btn {
