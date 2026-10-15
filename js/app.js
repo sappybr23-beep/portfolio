@@ -54,6 +54,17 @@
         applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
         return;
       }
+      /* «подняться наверх»: на десктопе скроллится лента/doc, а не страница */
+      var toTop = e.target.closest('a[href="#top"]');
+      if (toTop) {
+        e.preventDefault();
+        var panels = document.querySelectorAll('.feed, .doc-scroll');
+        for (var k = 0; k < panels.length; k++) {
+          panels[k].scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
       var langBtn = e.target.closest('.lang-btn');
       if (langBtn) {
         var next = root.getAttribute('lang') === 'en' ? 'ru' : 'en';
