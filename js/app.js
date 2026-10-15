@@ -28,7 +28,6 @@
       el.innerHTML = (lang === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-ru');
     }
     root.setAttribute('lang', lang);
-    try { localStorage.setItem('lang', lang); } catch (e) {}
     /* подпись кнопки = язык, на который переключим */
     var btns = document.querySelectorAll('.lang-btn');
     for (var j = 0; j < btns.length; j++) {
@@ -37,10 +36,11 @@
   }
   function currentLang() {
     try {
-      var saved = localStorage.getItem('lang');
+      /* запоминаем только явный выбор посетителя (клик по eng/rus) */
+      var saved = localStorage.getItem('lang-choice');
       if (saved === 'en' || saved === 'ru') return saved;
     } catch (e) {}
-    return 'ru'; /* по умолчанию русский */
+    return 'en'; /* по умолчанию английский */
   }
 
   /* ---------- инициализация ---------- */
@@ -56,7 +56,9 @@
       }
       var langBtn = e.target.closest('.lang-btn');
       if (langBtn) {
-        applyLang(root.getAttribute('lang') === 'en' ? 'ru' : 'en');
+        var next = root.getAttribute('lang') === 'en' ? 'ru' : 'en';
+        applyLang(next);
+        try { localStorage.setItem('lang-choice', next); } catch (e) {}
       }
     });
   }
