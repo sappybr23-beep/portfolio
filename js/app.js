@@ -43,10 +43,41 @@
     return 'en'; /* по умолчанию английский */
   }
 
+  /* ---------- СТРЕЛКА «НАВЕРХ» ---------- */
+  function setupToTop() {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'to-top';
+    btn.setAttribute('aria-label', 'Наверх');
+    btn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+      '<path d="M12 18V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+      '<path d="M6 10l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '</svg>';
+    document.body.appendChild(btn);
+
+    var panels = document.querySelectorAll('.feed, .doc-scroll');
+    var THRESHOLD = 40;
+    function atBottom(el) {
+      /* учитываем только то, что действительно прокручивается */
+      if (el.scrollHeight <= el.clientHeight + 1) return false;
+      return el.scrollTop + el.clientHeight >= el.scrollHeight - THRESHOLD;
+    }
+    function update() {
+      var show = atBottom(document.documentElement);
+      for (var i = 0; i < panels.length && !show; i++) show = atBottom(panels[i]);
+      btn.classList.toggle('is-visible', show);
+    }
+    for (var i = 0; i < panels.length; i++) panels[i].addEventListener('scroll', update, { passive: true });
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
   /* ---------- инициализация ---------- */
   function init() {
     applyTheme(currentTheme());
     applyLang(currentLang());
+    setupToTop();
 
     document.addEventListener('click', function (e) {
       var themeBtn = e.target.closest('.theme-btn');
@@ -55,7 +86,7 @@
         return;
       }
       /* «подняться наверх»: на десктопе скроллится лента/doc, а не страница */
-      var toTop = e.target.closest('a[href="#top"]');
+      var toTop = e.target.closest('a[href="#top"], .to-top');
       if (toTop) {
         e.preventDefault();
         var panels = document.querySelectorAll('.feed, .doc-scroll');
