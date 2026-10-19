@@ -373,6 +373,7 @@ a.work:hover .work-thumb img { transform: scale(1.03); }
   }
   /* на мобилке лента скроллится вместе со страницей */
   .feed {
+    width: 100%;        /* на всю ширину, чтобы колонка проектов встала по центру */
     padding: 0;
     position: static;
     height: auto;
