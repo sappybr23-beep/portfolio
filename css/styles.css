@@ -471,14 +471,14 @@ body::-webkit-scrollbar,
 /* ---------- кастомный курсор (только мышь/трекпад) ---------- */
 @media (hover: hover) and (pointer: fine) {
   html, body, body *, body *::before, body *::after {
-    cursor: url("../assets/cursor/cursor-light.svg") 3 3, default !important;
+    cursor: url("../assets/cursor/cursor-light.svg?v=2") 5 4, default !important;
   }
   :root[data-theme="dark"],
   :root[data-theme="dark"] body,
   :root[data-theme="dark"] body *,
   :root[data-theme="dark"] body *::before,
   :root[data-theme="dark"] body *::after {
-    cursor: url("../assets/cursor/cursor-dark.svg") 3 3, default !important;
+    cursor: url("../assets/cursor/cursor-dark.svg?v=2") 5 4, default !important;
   }
 }
 
