@@ -1,7 +1,7 @@
 /* ============================================================
    Анимации появления:
    — текст: «скрембл» — буквы перебирают случайные символы и встают на место
-   — картинки: «растворение мозаикой» — проявляются случайными прямоугольниками
+   — картинки: «мозаика» — крупные пиксели постепенно становятся чёткими
    Запускаются, когда блок попадает в экран. Уважают prefers-reduced-motion.
    ============================================================ */
 (function () {
@@ -14,6 +14,8 @@
   var WINDOW = 8;          /* сколько символов мерцает перед «фронтом» */
   var TICK = 45;           /* как часто перебираются случайные символы, мс */
   var STAGGER = 45;        /* задержка между блоками, появившимися вместе, мс */
+  var IMG_DURATION = 900;
+  var IMG_BLOCK = 40;      /* стартовый размер пикселя, px */
 
   var CONTAINERS = '.sidebar, .feed-inner, .doc-col';
   var SKIP = '.controls, .to-top, script, style, svg';
@@ -88,48 +90,7 @@
     requestAnimationFrame(frame);
   }
 
-  /* ---------- КАРТИНКИ: «растворение мозаикой» ----------
-     Как на nikitakudaktin.com: картинка разбита на прямоугольники разного
-     размера, которые проявляются в случайном порядке, линейно за 1 секунду. */
-  var IMG_DURATION = 1000;            /* loadDuration: 1s, ease: none */
-  var MOSAIC = {
-    block: document.querySelector('.doc') ? 180 : 140,  /* кейсы / главная */
-    scatter: 0.07,
-    sizeVariation: 0.82,
-    aspectVariation: 0.09
-  };
-
-  /* детерминированный хэш 0..1 */
-  function hash(e) {
-    var t = e | 0;
-    t = Math.imul(t ^ (t >>> 16), 0x45d9f3b);
-    t = Math.imul(t ^ (t >>> 16), 0x45d9f3b);
-    return ((t ^ (t >>> 16)) >>> 0) / 0xffffffff;
-  }
-  function clamp01(x) { return Math.max(0, Math.min(1, x)); }
-
-  function buildBlocks(w, h) {
-    var scale = Math.max(0.4, Math.min(2, window.innerWidth / 2560));
-    var size = Math.max(4, MOSAIC.block * scale);
-    var blocks = [], u = 173;
-    function add(x, y, bw, bh) {
-      u += 1;
-      var thr = hash(991 * u) + (hash(1297 * u) - 0.5) * MOSAIC.scatter * 0.32;
-      blocks.push({ x: x, y: y, w: Math.min(bw, w - x), h: Math.min(bh, h - y), t: clamp01(thr) });
-    }
-    for (var y = 0; y < h;) {
-      var rowH = Math.max(6, size * (1 + (hash(u + 31) - 0.5) * 1.6 * MOSAIC.sizeVariation));
-      for (var x = 0; x < w;) {
-        var bw = Math.max(6, size * (1 + (hash(43 * u) - 0.5) * 1.8 * MOSAIC.sizeVariation) *
-                                 (1 + (hash(71 * u) - 0.5) * 2.4 * MOSAIC.aspectVariation));
-        add(x, y, bw, rowH);
-        x += bw;
-      }
-      y += rowH;
-    }
-    return blocks;
-  }
-
+  /* ---------- КАРТИНКИ ---------- */
   function drawCover(ctx, img, w, h) {
     var ir = img.naturalWidth / img.naturalHeight, cr = w / h, sw, sh, sx, sy;
     if (ir > cr) { sh = img.naturalHeight; sw = sh * cr; sx = (img.naturalWidth - sw) / 2; sy = 0; }
@@ -145,40 +106,35 @@
 
     var cs = getComputedStyle(img);
     var dpr = Math.min(2, window.devicePixelRatio || 1);
-    var W = r.width, H = r.height;
-
-    /* готовая картинка в нужном кадрировании — один раз */
-    var full = document.createElement('canvas');
-    full.width = Math.round(W * dpr); full.height = Math.round(H * dpr);
-    drawCover(full.getContext('2d'), img, full.width, full.height);
-
     var canvas = document.createElement('canvas');
     canvas.className = img.className.replace('reveal-pending', '');
-    canvas.width = full.width; canvas.height = full.height;
+    canvas.width = Math.round(r.width * dpr);
+    canvas.height = Math.round(r.height * dpr);
     canvas.style.width = cs.width;
-    canvas.style.height = H + 'px';
+    canvas.style.height = r.height + 'px';
     canvas.style.borderRadius = cs.borderRadius;
     canvas.style.display = 'block';
     canvas.setAttribute('aria-hidden', 'true');
+
     var ctx = canvas.getContext('2d');
-
-    var blocks = buildBlocks(W, H).sort(function (a, b) { return b.t - a.t; });
-    var shown = 0;
-
+    var small = document.createElement('canvas');
+    var sctx = small.getContext('2d');
     img.parentNode.insertBefore(canvas, img);
     img.style.display = 'none';
 
     var t0 = performance.now();
     function frame(now) {
-      var p = clamp01((now - t0) / IMG_DURATION);
-      var cover = 1 - p;
-      /* блок виден, когда его порог выше «покрытия»; рисуем только новые */
-      while (shown < blocks.length && blocks[shown].t > cover) {
-        var b = blocks[shown++];
-        var x0 = Math.max(0, Math.floor((b.x - 1) * dpr)), y0 = Math.max(0, Math.floor((b.y - 1) * dpr));
-        var x1 = Math.min(full.width, Math.ceil((b.x + b.w + 1) * dpr)), y1 = Math.min(full.height, Math.ceil((b.y + b.h + 1) * dpr));
-        if (x1 > x0 && y1 > y0) ctx.drawImage(full, x0, y0, x1 - x0, y1 - y0, x0, y0, x1 - x0, y1 - y0);
-      }
+      var p = Math.min(1, (now - t0) / IMG_DURATION);
+      var e = 1 - Math.pow(1 - p, 3);                 /* ease-out */
+      var block = Math.max(1, Math.pow(IMG_BLOCK, 1 - e)) * dpr;
+      var sw = Math.max(1, Math.ceil(canvas.width / block));
+      var sh = Math.max(1, Math.ceil(canvas.height / block));
+      small.width = sw; small.height = sh;
+      drawCover(sctx, img, sw, sh);
+      ctx.imageSmoothingEnabled = false;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = Math.min(1, p * 3);
+      ctx.drawImage(small, 0, 0, sw, sh, 0, 0, canvas.width, canvas.height);
       if (p < 1) { requestAnimationFrame(frame); return; }
       img.style.display = '';
       img.classList.remove('reveal-pending');
@@ -226,7 +182,7 @@
             if (g) animateText(g, (batch++) * STAGGER);
           }
         });
-      }, { threshold: 0 });
+      }, { threshold: 0.12 });
 
       groups.forEach(function (g) { io.observe(g.el); });
       images.forEach(function (img) { io.observe(img); });
