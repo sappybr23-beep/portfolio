@@ -467,3 +467,50 @@ body::-webkit-scrollbar,
 .to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
 .to-top:hover { background: var(--bg-muted); }
 :root[data-theme="dark"] .to-top:hover { background: #1a1a1a; }
+
+/* ---------- кастомный курсор (только мышь/трекпад) ---------- */
+@media (hover: hover) and (pointer: fine) {
+  html, body, body *, body *::before, body *::after {
+    cursor: url("../assets/cursor/cursor-light.svg") 3 3, default !important;
+  }
+  :root[data-theme="dark"],
+  :root[data-theme="dark"] body,
+  :root[data-theme="dark"] body *,
+  :root[data-theme="dark"] body *::before,
+  :root[data-theme="dark"] body *::after {
+    cursor: url("../assets/cursor/cursor-dark.svg") 3 3, default !important;
+  }
+}
+
+/* мягкая тень под курсором */
+.cursor-shadow {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.cursor-shadow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 150px;
+  background: radial-gradient(ellipse 90px 75px at center,
+    rgba(20, 25, 35, 0.09) 0%, rgba(20, 25, 35, 0.035) 35%, transparent 75%);
+  transform: translate3d(var(--shadow-x, -180px), var(--shadow-y, -150px), 0);
+}
+/* тёмная тема: инверсия — едва заметное светлое свечение */
+:root[data-theme="dark"] .cursor-shadow::before {
+  background: radial-gradient(ellipse 90px 75px at center,
+    rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.022) 35%, transparent 75%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cursor-shadow.is-visible { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-shadow { display: none; }
+}

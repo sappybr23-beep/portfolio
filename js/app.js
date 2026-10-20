@@ -73,11 +73,43 @@
     update();
   }
 
+  /* ---------- ТЕНЬ ПОД КУРСОРОМ ---------- */
+  function setupCursorShadow() {
+    var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var shadow = document.createElement('span');
+    shadow.className = 'cursor-shadow';
+    shadow.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(shadow);
+
+    var frame = 0, x = 0, y = 0;
+    function hide() {
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+      shadow.classList.remove('is-visible');
+    }
+    document.addEventListener('pointermove', function (e) {
+      if (!fine.matches || reduced.matches || e.pointerType === 'touch') { hide(); return; }
+      x = e.clientX; y = e.clientY;
+      if (frame) return;
+      frame = requestAnimationFrame(function () {
+        frame = 0;
+        shadow.style.setProperty('--shadow-x', (x - 90) + 'px');
+        shadow.style.setProperty('--shadow-y', (y - 75) + 'px');
+        shadow.classList.add('is-visible');
+      });
+    }, { passive: true });
+    document.addEventListener('pointerout', function (e) { if (!e.relatedTarget) hide(); });
+    window.addEventListener('blur', hide);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) hide(); });
+  }
+
   /* ---------- инициализация ---------- */
   function init() {
     applyTheme(currentTheme());
     applyLang(currentLang());
     setupToTop();
+    setupCursorShadow();
 
     document.addEventListener('click', function (e) {
       var themeBtn = e.target.closest('.theme-btn');
