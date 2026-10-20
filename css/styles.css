@@ -514,3 +514,22 @@ body::-webkit-scrollbar,
 @media (prefers-reduced-motion: reduce) {
   .cursor-shadow { display: none; }
 }
+
+/* «следующий проект» внизу кейса */
+.next-project {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: var(--s8);
+  display: flex;
+  justify-content: flex-end;
+}
+.next-project a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  opacity: 0.56;
+  transition: opacity 0.15s ease;
+}
+.next-project a:hover { opacity: 1; }
+.next-project .icon { transition: transform 0.2s ease; }
+.next-project a:hover .icon { transform: translateX(3px); }
