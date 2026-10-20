@@ -106,43 +106,17 @@
 
   /* ---------- ЛОУДЕР (как на neundex.com) ----------
      счётчик 0% → 100% за 2 с, пауза 1 с, затем экран плавно исчезает за 1 с.
-     При смене темы/языка: экран проявляется, страница перезагружается
-     с новыми настройками и проигрывает тот же лоудер. */
+     Показывается при входе на сайт и при обновлении страницы. */
   var COUNT_MS = 2000, HOLD_MS = 1000, FADE_MS = 1000;
-  var SCROLL_KEY = 'loader-scroll';
 
-  function panelsList() { return document.querySelectorAll('.feed, .doc-scroll'); }
-
-  function saveScroll() {
-    var pos = { path: location.pathname, win: window.scrollY, panels: [] };
-    var p = panelsList();
-    for (var i = 0; i < p.length; i++) pos.panels.push(p[i].scrollTop);
-    try { sessionStorage.setItem(SCROLL_KEY, JSON.stringify(pos)); } catch (e) {}
-  }
-  function restoreScroll() {
-    var pos = null;
-    try { pos = JSON.parse(sessionStorage.getItem(SCROLL_KEY)); sessionStorage.removeItem(SCROLL_KEY); } catch (e) {}
-    if (!pos || pos.path !== location.pathname) return;
-    var p = panelsList();
-    for (var i = 0; i < p.length; i++) p[i].scrollTop = pos.panels[i] || 0;
-    window.scrollTo(0, pos.win || 0);
-  }
-
-  function makeLoader() {
+  function runLoader() {
     var el = document.createElement('div');
     el.className = 'preloader';
     el.setAttribute('aria-hidden', 'true');
     el.innerHTML = '<div class="preloader__counter">0%</div>';
     document.body.appendChild(el);
-    return el;
-  }
-
-  function runLoader() {
-    try { sessionStorage.removeItem('loader-force'); } catch (e) {}
-    var el = makeLoader();
     var counter = el.firstChild;
     root.classList.add('loader-ready');
-    restoreScroll();
     var t0 = performance.now();
     function tick(now) {
       var p = Math.min(1, (now - t0) / COUNT_MS);
@@ -158,25 +132,6 @@
     requestAnimationFrame(tick);
   }
 
-  /* показать экран лоудера, сохранить выбор и перезагрузить страницу */
-  var switching = false;
-  function switchWithLoader(save) {
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) { save(); location.reload(); return; }
-    if (switching) return;
-    switching = true;
-    var el = makeLoader();
-    el.classList.add('is-switch', 'is-entering');
-    el.getBoundingClientRect();            /* чтобы transition сработал */
-    el.classList.remove('is-entering');
-    setTimeout(function () {
-      save();
-      saveScroll();
-      try { sessionStorage.setItem('loader-force', '1'); } catch (e) {}
-      location.reload();
-    }, 350);
-  }
-
   /* ---------- инициализация ---------- */
   function init() {
     applyTheme(currentTheme());
@@ -188,8 +143,7 @@
     document.addEventListener('click', function (e) {
       var themeBtn = e.target.closest('.theme-btn');
       if (themeBtn) {
-        var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        switchWithLoader(function () { applyTheme(nextTheme); });
+        applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
         return;
       }
       /* «подняться наверх»: на десктопе скроллится лента/doc, а не страница */
@@ -206,9 +160,8 @@
       var langBtn = e.target.closest('.lang-btn');
       if (langBtn) {
         var next = root.getAttribute('lang') === 'en' ? 'ru' : 'en';
-        switchWithLoader(function () {
-          try { localStorage.setItem('lang-choice', next); } catch (e) {}
-        });
+        applyLang(next);
+        try { localStorage.setItem('lang-choice', next); } catch (e) {}
       }
     });
   }
