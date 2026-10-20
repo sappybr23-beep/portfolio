@@ -1,7 +1,7 @@
 /* ============================================================
    Руслан Ан — портфолио
    Дизайн-система (из макетов Paper «Jolly lantern»)
-   Шрифт: Roboto Mono · акцент: моноширинная editorial-типографика
+   Шрифт: JetBrains Mono · акцент: моноширинная editorial-типографика
    ============================================================ */
 
 :root {
@@ -11,7 +11,7 @@
   --on-dark: #ffffff;
   --border: rgba(30, 30, 30, 0.08);
 
-  --font: "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --fs: 16px;
   --lh: 1.4;
