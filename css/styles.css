@@ -537,3 +537,6 @@ body::-webkit-scrollbar,
 /* картинка ждёт анимации появления (см. js/reveal.js) */
 .reveal-pending { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .reveal-pending { opacity: 1; } }
+
+/* ссылки внизу сайдбара (вместо кнопок CV / telegram) */
+.sidebar-links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s2); }
