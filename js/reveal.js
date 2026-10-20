@@ -192,6 +192,12 @@
     }
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  /* пока идёт лоудер — ждём его окончания, чтобы анимация была видна */
+  function start() {
+    if (document.documentElement.classList.contains('loading')) {
+      document.addEventListener('loader:done', init, { once: true });
+    } else init();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
 })();

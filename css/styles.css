@@ -540,3 +540,32 @@ body::-webkit-scrollbar,
 
 /* ссылки внизу сайдбара (вместо кнопок CV / telegram) */
 .sidebar-links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s2); }
+
+/* ---------- лоудер: счётчик 0% → 100% ---------- */
+/* пока не загрузился JS, экран закрывает псевдоэлемент с «0%» */
+html.loading::before,
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: clamp(56px, 12vw, 160px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+html.loading::before { content: "0%"; }
+html.loading.loader-ready::before { content: none; }
+html.loading body { overflow: hidden; }
+.preloader { transition: opacity 1s cubic-bezier(.45, 0, .55, 1); }
+.preloader.is-switch { transition-duration: .35s; }
+.preloader.is-entering { opacity: 0; }
+.preloader.is-out { opacity: 0; pointer-events: none; }
+.preloader__counter { transition: opacity 1s cubic-bezier(.45, 0, .55, 1); }
+.preloader.is-out .preloader__counter { opacity: 0; }
