@@ -596,15 +596,3 @@ html.loading body { overflow: hidden; }
 }
 html.lightbox-open .to-top,
 html.lightbox-open .cursor-shadow { opacity: 0; }
-
-/* ---------- радужные шлейфы по краям экрана ---------- */
-.streaks {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 50;
-  pointer-events: none;
-  filter: blur(6px) saturate(1.2);
-}
-html.lightbox-open .streaks { opacity: 0; transition: opacity .3s; }
