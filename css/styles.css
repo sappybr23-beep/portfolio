@@ -565,3 +565,14 @@ html.loading body { overflow: hidden; }
 .preloader.is-out { opacity: 0; pointer-events: none; }
 .preloader__counter { transition: opacity 1s cubic-bezier(.45, 0, .55, 1); }
 .preloader.is-out .preloader__counter { opacity: 0; }
+
+/* ---------- списки с буллетами («задачи и достижения») ---------- */
+.bullets > div {
+  position: relative;
+  padding-left: 1.5ch;
+}
+.bullets > div::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
