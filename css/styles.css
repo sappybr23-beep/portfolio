@@ -96,6 +96,9 @@ a { color: inherit; text-decoration: none; }
 .label { font-weight: 500; }
 .muted { opacity: 0.5; }
 .muted-56 { opacity: 0.56; }
+/* ссылки на компании в подписи под именем: основной цвет текста, подчёркивание при наведении */
+.co-link { color: inherit; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: text-decoration-color .2s; }
+.co-link:hover, .co-link:focus-visible { text-decoration-color: currentColor; }
 .pre { white-space: pre-wrap; }
 .lower { text-transform: lowercase; }
 .full { width: 100%; }
