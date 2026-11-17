@@ -712,6 +712,7 @@ html.lightbox-open .cursor-shadow { opacity: 0; }
   color: inherit;
   font: inherit;
   text-align: left;
+  text-decoration: none;
   transition: background 0.15s ease;
 }
 .contact-row:hover, .contact-row:focus-visible { background: color-mix(in srgb, var(--ink) 5%, transparent); outline: none; }

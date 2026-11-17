@@ -1,16 +1,21 @@
 /* ============================================================
    Модалка «контакты» (как кнопка Contact на mishanaer.com):
    — открывается кнопками [data-contact] и клавишей C;
-   — клик по строке копирует значение, подпись меняется на «скопировано»;
+   — почта открывает почтовый клиент, телеграм — чат в телеграме;
+   — телефон: на компьютере копируется (подпись меняется на «скопировано»),
+     на телефоне — звонок;
    — закрывается крестиком, кликом по фону и Esc.
    ============================================================ */
 (function () {
   var root = document.documentElement;
 
   var CONTACTS = [
-    { key: 'email', ru: 'почта', en: 'email', value: 'sappy_br@yahoo.com' },
-    { key: 'telegram', ru: 'телеграм', en: 'telegram', value: '@antwentythree' },
-    { key: 'phone', ru: 'телефон', en: 'phone', value: '+7 (999) 247-23-23', copy: '+79992472323' }
+    { key: 'email', ru: 'почта', en: 'email', value: 'sappy_br@yahoo.com',
+      href: 'mailto:sappy_br@yahoo.com', action: { ru: 'написать на почту', en: 'send an email to' } },
+    { key: 'telegram', ru: 'телеграм', en: 'telegram', value: '@antwentythree',
+      href: 'https://t.me/antwentythree', blank: true, action: { ru: 'написать в телеграм', en: 'message on telegram' } },
+    { key: 'phone', ru: 'телефон', en: 'phone', value: '+7 (999) 247-23-23', copy: '+79992472323',
+      href: 'tel:+79992472323', copyOnDesktop: true, action: { ru: 'позвонить', en: 'call' } }
   ];
   var TEXT = {
     ru: { title: 'контакты', close: 'закрыть', copy: 'скопировать', copied: 'скопировано' },
@@ -18,6 +23,9 @@
   };
 
   var overlay, dialog, lastFocus = null;
+
+  /* компьютер = есть мышь/трекпад; телефоны и планшеты — сенсор */
+  function isDesktop() { return window.matchMedia('(hover: hover) and (pointer: fine)').matches; }
 
   function lang() { return root.getAttribute('lang') === 'ru' ? 'ru' : 'en'; }
 
@@ -27,12 +35,14 @@
     overlay.hidden = true;
 
     var rows = CONTACTS.map(function (c) {
-      return '<button type="button" class="contact-row" data-copy="' + (c.copy || c.value) + '" data-key="' + c.key + '">' +
+      return '<a class="contact-row" href="' + c.href + '" data-key="' + c.key + '"' +
+        (c.blank ? ' target="_blank" rel="noopener"' : '') +
+        (c.copyOnDesktop ? ' data-copy="' + (c.copy || c.value) + '"' : '') + '>' +
         '<span class="contact-row__text">' +
           '<span class="contact-row__label"></span>' +
           '<span class="contact-row__value">' + c.value + '</span>' +
         '</span>' +
-      '</button>';
+      '</a>';
     }).join('');
 
     overlay.innerHTML =
@@ -49,8 +59,11 @@
 
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay || e.target.closest('.contact-close')) { close(); return; }
-      var row = e.target.closest('.contact-row');
-      if (row) copy(row);
+      /* телефон на компьютере копируем, на телефоне ссылка tel: звонит сама */
+      var row = e.target.closest('.contact-row[data-copy]');
+      if (row && isDesktop()) { e.preventDefault(); copy(row); return; }
+      /* почта и телеграм открываются по ссылке; модалку закрываем */
+      if (e.target.closest('.contact-row')) setTimeout(close, 0);
     });
   }
 
@@ -61,7 +74,8 @@
     CONTACTS.forEach(function (c) {
       var row = overlay.querySelector('[data-key="' + c.key + '"]');
       row.querySelector('.contact-row__label').textContent = c[l];
-      row.setAttribute('aria-label', t.copy + ' ' + c[l] + ': ' + c.value);
+      var verb = (c.copyOnDesktop && isDesktop()) ? t.copy + ' ' + c[l] : c.action[l];
+      row.setAttribute('aria-label', verb + ': ' + c.value);
     });
   }
 
@@ -130,7 +144,7 @@
 
   /* фокус не уходит за пределы модалки */
   function trapTab(e) {
-    var items = dialog.querySelectorAll('button');
+    var items = dialog.querySelectorAll('button, a[href]');
     var first = items[0], last = items[items.length - 1];
     if (e.shiftKey && (document.activeElement === first || document.activeElement === dialog)) {
       e.preventDefault(); last.focus();
