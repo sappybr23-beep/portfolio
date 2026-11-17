@@ -1,21 +1,17 @@
 /* ============================================================
    Модалка «контакты» (как кнопка Contact на mishanaer.com):
    — открывается кнопками [data-contact] и клавишей C;
-   — клик по строке копирует значение, иконка превращается в галочку;
+   — клик по строке копирует значение, подпись меняется на «скопировано»;
    — закрывается крестиком, кликом по фону и Esc.
    ============================================================ */
 (function () {
   var root = document.documentElement;
 
   var CONTACTS = [
-    { key: 'email', ru: 'почта', en: 'email', value: 'sappy_br@yahoo.com',
-      icon: '<rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' },
-    { key: 'telegram', ru: 'телеграм', en: 'telegram', value: '@antwentythree',
-      icon: '<path d="M21 4 3 11l6.5 2.5L12 20l3.5-4.5L20 19 21 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9.5 13.5 6-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' },
-    { key: 'phone', ru: 'телефон', en: 'phone', value: '+7 (999) 247-23-23', copy: '+79992472323',
-      icon: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>' }
+    { key: 'email', ru: 'почта', en: 'email', value: 'sappy_br@yahoo.com' },
+    { key: 'telegram', ru: 'телеграм', en: 'telegram', value: '@antwentythree' },
+    { key: 'phone', ru: 'телефон', en: 'phone', value: '+7 (999) 247-23-23', copy: '+79992472323' }
   ];
-  var CHECK = '<path d="m5 12.5 4.5 4.5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
   var TEXT = {
     ru: { title: 'контакты', close: 'закрыть', copy: 'скопировать', copied: 'скопировано' },
     en: { title: 'contact', close: 'close', copy: 'copy', copied: 'copied' }
@@ -32,10 +28,6 @@
 
     var rows = CONTACTS.map(function (c) {
       return '<button type="button" class="contact-row" data-copy="' + (c.copy || c.value) + '" data-key="' + c.key + '">' +
-        '<span class="contact-row__icon" aria-hidden="true">' +
-          '<svg class="ci ci--main" viewBox="0 0 24 24" fill="none">' + c.icon + '</svg>' +
-          '<svg class="ci ci--check" viewBox="0 0 24 24" fill="none">' + CHECK + '</svg>' +
-        '</span>' +
         '<span class="contact-row__text">' +
           '<span class="contact-row__label"></span>' +
           '<span class="contact-row__value">' + c.value + '</span>' +
@@ -98,10 +90,16 @@
   function copy(row) {
     copyText(row.getAttribute('data-copy')).then(function () {
       row.focus({ preventScroll: true });
+      var label = row.querySelector('.contact-row__label');
+      var c = CONTACTS.filter(function (x) { return x.key === row.getAttribute('data-key'); })[0];
       row.classList.add('is-copied');
+      label.textContent = TEXT[lang()].copied;
       overlay.querySelector('.contact-live').textContent = TEXT[lang()].copied;
       clearTimeout(row._t);
-      row._t = setTimeout(function () { row.classList.remove('is-copied'); }, 1600);
+      row._t = setTimeout(function () {
+        row.classList.remove('is-copied');
+        label.textContent = c[lang()];
+      }, 1600);
     }, function () {});
   }
 
