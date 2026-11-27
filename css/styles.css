@@ -297,10 +297,6 @@ a.work:hover .work-thumb video { transform: scale(1.03); }
 .work-meta { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s4); width: 100%; }
 .work.is-soon .work-meta { opacity: 0.5; }
 
-/* footer block inside feed (итог) */
-.feed-foot { display: flex; flex-direction: column; align-items: center; gap: var(--s8); width: 100%; }
-.feed-foot .media { border-radius: var(--r-xl); aspect-ratio: 1/1; }
-.feed-foot-actions { display: flex; flex-direction: column; gap: var(--s4); width: 100%; }
 
 /* ============================================================
    DOC PAGES (about / project)
@@ -443,11 +439,6 @@ body::-webkit-scrollbar,
   border: 1px solid #f4f4f4;
 }
 :root[data-theme="dark"] .sidebar .btn--light:hover { background: rgba(255, 255, 255, 0.08); }
-
-/* блок «итог / summary» — только в мобильной версии */
-@media (min-width: 901px) {
-  .feed-foot { display: none; }
-}
 
 /* стрелка «наверх» — появляется, когда долистали до низа */
 .to-top {
