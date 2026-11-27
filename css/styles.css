@@ -38,7 +38,7 @@
   /* layout */
   --col: 556px;      /* контентная колонка (кейсы / обо мне) */
   --sidebar: 337px;  /* сайдбар на главной */
-  --feed: 362px;     /* колонка ленты проектов */
+  --feed: 534px;     /* колонка ленты проектов (как на dmvdsgn.com) */
   --page-pad: 16px;
   --section-gap: 72px;
   --fade-h: 80px;
@@ -186,10 +186,12 @@ body.theme-muted .card { background: var(--bg-muted); }
   height: calc(100vh - var(--page-pad) * 2);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: var(--s16);
+  justify-content: flex-start;
+  gap: var(--s8);
   overflow: clip;
 }
+/* сайдбар без рамки — как в референсе */
+.card.sidebar { border: none; border-radius: 0; }
 .avatar {
   width: 141px;
   height: 141px;
@@ -270,12 +272,12 @@ body.theme-muted .card { background: var(--bg-muted); }
 :root[data-theme="dark"] .theme-btn .i-sun { display: inline-block; }
 .work { display: flex; flex-direction: column; align-items: center; gap: var(--s8); text-decoration: none; }
 .work-thumb {
-  width: 360px;
+  width: 534px;
   max-width: 100%;
-  aspect-ratio: 360 / 372;
-  border-radius: var(--r-lg);
+  aspect-ratio: 534 / 732;
+  border-radius: 20px;
   overflow: hidden;
-  background: var(--bg-muted);
+  background: #f1f1f1;
   position: relative;
   display: flex;
   align-items: center;
@@ -283,6 +285,9 @@ body.theme-muted .card { background: var(--bg-muted); }
 }
 .work-thumb img,
 .work-thumb video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+/* квадратное видео целиком по центру вертикальной карточки, сверху и снизу — серая подложка */
+.work-thumb video { height: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+:root[data-theme="dark"] .work-thumb { background: #161616; }
 a.work:hover .work-thumb img,
 a.work:hover .work-thumb video { transform: scale(1.03); }
 .work-thumb.soon img { filter: blur(0.75px) brightness(0.8); }
